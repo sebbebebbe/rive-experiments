@@ -13,7 +13,9 @@ This repository contains various experiments and demonstrations using [Rive](htt
 ## Projects
 
 ### Bindings
-Examples demonstrating Rive bindings and integrations.
+Examples demonstrating Rive bindings and integrations using WebGL2 renderer.
+
+**[View Bindings Demo](bindings/index.html)**
 
 ## Getting Started
 
