@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Rive Animation - WebGL2</title>
+    <script src="https://unpkg.com/@rive-app/webgl2@latest"></script>
+    <style>
+        body {
+            margin: 0;
+            /* display: flex; */
+            /* justify-content: center;
+            align-items: center; */
+            /* min-height: 100vh;
+            background: #f0f0f0; */
+        }
+        /* canvas {
+            max-width: 100%;
+            max-height: 100vh;
+        } */
+         .rive-dynamic-canvas {
+     background-color: #000000;
+     /* aspect-ratio: 9 / 16; */
+     /* min-height: 80vh; */
+      /* width: 100%;
+      height: 100%;  */
+     /* max-width: 90vw; */
+     max-height: 99vh;
+ }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" class="rive-dynamic-canvas"></canvas>
+    
+    <script>
+         let layout = new window.rive.Layout({
+     fit: window.rive.Fit.Fit,
+     alignment: window.rive.Alignment.Center
+ });
+ function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        const r = new rive.Rive({
+            src: 'binding_test.riv',
+            canvas: document.getElementById('canvas'),
+            autoplay: true,
+            layout: layout,
+            renderer: 'webgl2',
+            stateMachines: 'State Machine 1',
+            enableRiveAssetCDN: false,
+            autoBind: true,
+            // Don't specify stateMachines - let Rive use the default
+            // This allows data bindings to work with whatever is configured in the file
+            onLoad: () => {
+                if (r && canvas && document.contains(canvas)) {
+                    r.resizeDrawingSurfaceToCanvas();
+                }
+
+                
+},
+
+        });
+    </script>
+</body>
+</html>
